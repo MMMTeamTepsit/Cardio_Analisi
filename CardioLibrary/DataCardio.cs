@@ -74,5 +74,26 @@ namespace CardioLibrary
 
             return risultato;
         }
+
+        //script 3
+        public static double CalorieBruciate(string sesso, double frequenza_cardiaca, double peso, int anni, double tempo)
+        {
+            double calorie_bruciate = 0;
+
+            if (sesso == "M")
+            {
+                calorie_bruciate = ((anni * 0.2017) + (peso * 0.199) + (frequenza_cardiaca * 0.6309) - 55.0969) * tempo / 4.184;
+                calorie_bruciate = Math.Round(calorie_bruciate, 2);
+            }
+
+            if (sesso == "F")
+            {
+                calorie_bruciate = ((anni * 0.074) - (peso * 0.126) + (frequenza_cardiaca * 0.4472) - 20.4022) * tempo / 4.184;
+                calorie_bruciate = Math.Round(calorie_bruciate, 2);
+            }
+
+            return calorie_bruciate;
+        }
+
     }
 }

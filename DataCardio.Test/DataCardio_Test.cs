@@ -40,5 +40,16 @@ namespace DataCardio.Test
             Assert.AreEqual(frequenza_cardiaca_riposo, frequenza_cardiaca_riposo_aspettati);
         }
 
+        //script 3
+        [DataTestMethod]
+        [DataRow("M", 80, 75, 40, 60, 263.40)]  //sesso, frequenza cardiaca media, peso, anni, durata sessione allenamento, calorie bruciate aspettate
+        [DataRow("F", 60, 65, 30, 60, 6.59)]
+
+        public void TestCalorieBruciate(string sesso, double frequenza_cardiaca, double peso, int anni, double tempo, double calorie_bruciate_aspettate)
+        {
+            double calorie_bruciate = CardioLibrary.DataCardio.CalorieBruciate(sesso, frequenza_cardiaca, peso, anni, tempo);
+
+            Assert.AreEqual(calorie_bruciate_aspettate, calorie_bruciate);
+        }
     }
 }
