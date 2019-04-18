@@ -51,5 +51,17 @@ namespace DataCardio.Test
 
             Assert.AreEqual(calorie_bruciate_aspettate, calorie_bruciate);
         }
+
+        //script 4
+        [DataTestMethod]
+        [DataRow("Corsa", 10, 80, 720)]  //tipo di attività, km percorsi, peso corporeo, spesa energetica
+        [DataRow("Camminata", 20, 70, 700)]
+
+        public void TestSpesaEnergetica(string attività, double km_percorsi, double peso_corporeo, double spesa_energetica_aspettata)
+        {
+            double spesa_energetica = CardioLibrary.DataCardio.SpesaEnergetica(attività, km_percorsi, peso_corporeo);
+
+            Assert.AreEqual(spesa_energetica_aspettata, spesa_energetica);
+        }
     }
 }
