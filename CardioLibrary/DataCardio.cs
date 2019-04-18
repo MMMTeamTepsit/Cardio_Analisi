@@ -44,5 +44,35 @@ namespace CardioLibrary
 
             return battiti;
         }
+
+        //script 2
+        public static string FrequenzaCardiacaRiposo(double battiti)
+        {
+            string risultato = "";
+
+            if (battiti <= 0)
+            {
+                risultato = "Errore";
+            }
+            else
+            {
+                if (battiti < 60)
+                {
+                    risultato = "Bradicardia";
+                }
+
+                if (battiti >= 60 && battiti <= 100)
+                {
+                    risultato = "Normale";
+                }
+
+                if (battiti > 100)
+                {
+                    risultato = "Tachicardia";
+                }
+            }
+
+            return risultato;
+        }
     }
 }

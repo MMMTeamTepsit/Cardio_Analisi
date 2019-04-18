@@ -22,5 +22,23 @@ namespace DataCardio.Test
             Assert.AreEqual(battiti_max, battiti_max_aspettati);
         }
 
+        //script 2
+        [DataTestMethod]
+        [DataRow(40, "Bradicardia")]  //battiti, frequenza cardiaca a riposo
+        [DataRow(50, "Bradicardia")]
+        [DataRow(60, "Normale")]
+        [DataRow(100, "Normale")]
+        [DataRow(120, "Tachicardia")]
+        [DataRow(140, "Tachicardia")]
+        [DataRow(-10, "Errore")]
+        [DataRow(0, "Errore")]
+
+        public void TestValoriFrequenzaCardiacaRiposo(double battiti, string frequenza_cardiaca_riposo_aspettati)
+        {
+            string frequenza_cardiaca_riposo = CardioLibrary.DataCardio.FrequenzaCardiacaRiposo(battiti);
+
+            Assert.AreEqual(frequenza_cardiaca_riposo, frequenza_cardiaca_riposo_aspettati);
+        }
+
     }
 }
