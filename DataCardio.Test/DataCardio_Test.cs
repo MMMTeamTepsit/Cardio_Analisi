@@ -21,5 +21,6 @@ namespace DataCardio.Test
             double battiti_max = CardioLibrary.DataCardio.Btmassimi(età);
             Assert.AreEqual(battiti_max, battiti_max_aspettati);
         }
+
     }
 }
