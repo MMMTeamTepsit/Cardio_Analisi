@@ -112,5 +112,98 @@ namespace CardioLibrary
 
             return risultato;
         }
+
+        //script 5
+        public static double BattitiGiornalieri(double battiti_riposo, double battiti_massimi, double battiti_recupero)
+        {
+            double battiti_giornalieri = 0;
+
+            battiti_giornalieri = (battiti_riposo + battiti_massimi + battiti_recupero) / 3;
+
+            battiti_giornalieri = Math.Round(battiti_giornalieri, 1);
+
+            return battiti_giornalieri;
+        }
+
+        public static double BattitiRiposo(double battiti_1, double battiti_2, double battiti_3, double battiti_4, double battiti_5)
+        {
+            double battiti_riposo = 0;
+            double[] battiti = { battiti_1, battiti_2, battiti_3, battiti_4, battiti_5 };
+            double min = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i == 0)
+                {
+                    min = battiti[i];
+                }
+
+                if (battiti[i] < min)
+                {
+                    min = battiti[i];
+                }
+            }
+
+            battiti_riposo = min;
+
+            return battiti_riposo;
+        }
+
+        public static double VariabilitàBattito(double battiti_1, double battiti_2, double battiti_3, double battiti_4, double battiti_5)
+        {
+            double variazione = 0;
+            double[] battiti = { battiti_1, battiti_2, battiti_3, battiti_4, battiti_5 };
+            double max = 0, min = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i == 0)
+                {
+                    max = battiti[i];
+                    min = battiti[i];
+                }
+
+                if (battiti[i] < min)
+                {
+                    min = battiti[i];
+                }
+
+                if (battiti[i] > max)
+                {
+                    max = battiti[i];
+                }
+            }
+
+            variazione = max - min;
+
+            return variazione;
+        }
+
+        public static string OrdineBattiti(double battiti_mattutini, double battiti_pomeridiani, double battiti_attività, double battiti_serali)
+        {
+            string battiti_ordinati = "";
+
+            string risultato = "";
+
+            double[] battiti = { battiti_mattutini, battiti_pomeridiani, battiti_attività, battiti_serali };
+
+            Array.Sort(battiti);
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i != 3)
+                {
+                    battiti_ordinati = Convert.ToString(battiti[i] + ", ");
+                }
+                else
+                {
+                    battiti_ordinati = Convert.ToString(battiti[i]);
+                }
+
+                risultato = risultato + battiti_ordinati;
+            }
+
+            return risultato;
+        }
     }
 }

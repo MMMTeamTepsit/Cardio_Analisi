@@ -12,6 +12,8 @@ namespace DataCardio.Test
         [DataRow(20, 140, 180)]
         [DataRow(25, 136.5, 175.5)]
         [DataRow(30, 133, 171)]
+        [DataRow(0, 0, 0)]
+        [DataRow(-1, 0, 0)]
 
         public void TestBattitiMinimiMassimi(int età, double battiti_min_aspettati, double battiti_max_aspettati)
         {
@@ -62,6 +64,51 @@ namespace DataCardio.Test
             double spesa_energetica = CardioLibrary.DataCardio.SpesaEnergetica(attività, km_percorsi, peso_corporeo);
 
             Assert.AreEqual(spesa_energetica_aspettata, spesa_energetica);
+        }
+
+        //script 5
+        [DataTestMethod]
+        [DataRow(60, 110, 100, 90)]  //battiti a riposo, battiti massimi, battiti di recupero, media giornaliera
+        [DataRow(55, 120, 90, 88.3)]
+
+        public void TestBattitiGiornalieri(double battiti_riposo, double battiti_massimi, double battiti_recupero, double battiti_giornalieri_aspettati)
+        {
+            double battiti_giornalieri = CardioLibrary.DataCardio.BattitiGiornalieri(battiti_riposo, battiti_massimi, battiti_recupero);
+
+            Assert.AreEqual(battiti_giornalieri_aspettati, battiti_giornalieri);
+        }
+
+        [DataTestMethod]
+        [DataRow(58, 56, 60, 56, 57, 56)]  //battiti giorno 1, giorno 2, giorno 3, giorno 4, giorno 5, battiti a riposo
+        [DataRow(56, 60, 55, 58, 50, 50)]
+
+        public void TestBattitiRiposo(double battiti_1, double battiti_2, double battiti_3, double battiti_4, double battiti_5, double battiti_riposo_aspettati)
+        {
+            double battiti_riposo = CardioLibrary.DataCardio.BattitiRiposo(battiti_1, battiti_2, battiti_3, battiti_4, battiti_5);
+
+            Assert.AreEqual(battiti_riposo_aspettati, battiti_riposo);
+        }
+
+        [DataTestMethod]
+        [DataRow(56, 58, 60, 50, 55, 10)]  //battiti giorno 1, giorno 2, giorno 3, giorno 4, giorno 5, variabilità del battito
+        [DataRow(57, 55, 56, 59, 58, 4)]
+
+        public void TestVariabilitàBattito(double battiti_1, double battiti_2, double battiti_3, double battiti_4, double battiti_5, double variabilità_battito_aspettato)
+        {
+            double variabilità_battito = CardioLibrary.DataCardio.VariabilitàBattito(battiti_1, battiti_2, battiti_3, battiti_4, battiti_5);
+
+            Assert.AreEqual(variabilità_battito_aspettato, variabilità_battito);
+        }
+
+        [DataTestMethod]
+        [DataRow(60, 65, 100, 62, "60, 62, 65, 100")]  //battiti mattutini - battiti pomeridiani - battiti durante attività - battiti serali, battiti ordinati in ordine crescente
+        [DataRow(62, 66, 110, 65, "62, 65, 66, 110")]
+
+        public void TestBattitiCrescenti(double battiti_mattutini, double battiti_pomeridiani, double battiti_attività, double battiti_serali, string battiti_ordinati_aspettati)
+        {
+            string battiti_ordinati = CardioLibrary.DataCardio.OrdineBattiti(battiti_mattutini, battiti_pomeridiani, battiti_attività, battiti_serali);
+
+            Assert.AreEqual(battiti_ordinati_aspettati, battiti_ordinati);
         }
     }
 }
