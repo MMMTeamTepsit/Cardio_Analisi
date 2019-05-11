@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardioLibrary", "CardioLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCardio.Test", "DataCardio.Test\DataCardio.Test.csproj", "{BBBC8FEC-756B-4CB3-B0BE-C97ABCE2E440}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_CardioAnalisi", "..\Wpf_CardioAnalisi\Wpf_CardioAnalisi\Wpf_CardioAnalisi.csproj", "{2FE37ED3-A053-45B7-96ED-12CAA20705DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BBBC8FEC-756B-4CB3-B0BE-C97ABCE2E440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBBC8FEC-756B-4CB3-B0BE-C97ABCE2E440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBBC8FEC-756B-4CB3-B0BE-C97ABCE2E440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE37ED3-A053-45B7-96ED-12CAA20705DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE37ED3-A053-45B7-96ED-12CAA20705DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE37ED3-A053-45B7-96ED-12CAA20705DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE37ED3-A053-45B7-96ED-12CAA20705DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
